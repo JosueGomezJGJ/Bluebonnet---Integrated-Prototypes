@@ -1,37 +1,42 @@
-*, *::before, *::after {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body, html, #root, .app{
+body,
+html,
+#root,
+.app {
   height: 100%;
-  width:100%;
+  width: 100%;
   overflow: hidden;
 }
-h1{
+h1 {
   margin: 0 !important;
 }
 
-/* .react-swipeable-view-container{
-  min-height: 100%;
-} */
-
-.page{
+.page {
   min-height: 100%;
   width: 100%;
   padding: 1em;
 }
 
-.dashboard{
-  background: #FEA900;
+.dashboard {
+  background: #e0e1bc;
 }
 
-.plant-profile{
-  background: #B3DC4A;
+.plant-profile {
+  background: #b3dc4a;
 }
 
-.season-insights{
-  background: #6AC0FF;
+.season-insights {
+  background: #6ac0ff;
 }
-.plant-search{
-  background: #fd5c63
+.plant-search {
+  background: #fd5c63;
 }

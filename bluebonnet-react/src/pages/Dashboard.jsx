@@ -1,19 +1,18 @@
 // Import using relational paths
-import '../App.css';
+import "../App.css";
 
-
-function Dashboard({setScreen}) { 
+function Dashboard({ setScreen, user }) {
   // Write in Javascript here
 
-
   return (
-    <div className="dashboard page">
-      <h1> Dashboard </h1>
-      <button onClick={()=> setScreen("plant-search")}>Add Plant</button>
-      {/* Write in XML here; use {to break out and write in JS} */}
+    <div className="page">
+      <h1 className="text-4xl font-bold mt-0 pt-10 mb-2">
+        Welcome {user.name}
+      </h1>
+      {/* <button onClick={() => setScreen("plant-search")}>Add Plant</button> */}
     </div>
   );
 }
 
-export {Dashboard}; 
+export { Dashboard };
 // Use {} notation to export more than one component;

@@ -1,64 +1,51 @@
-import React, { useState } from 'react';
-import SwipeableViews from 'react-swipeable-views';
+import React, { useState } from "react";
+import SwipeableViews from "react-swipeable-views";
+import { SeasonInsights } from "./pages/SeasonInsights";
+import { Dashboard } from "./pages/Dashboard";
+import { getCurrentSeason } from "./lib/utils";
 
 // Data
-import { cilantroPlantData, cilantroForum } from './AppConfig';
-
-// Pages
-import { PlantProfile } from './pages/PlantProfile';
-import { SeasonInsights } from './pages/SeasonInsights';
-import { Dashboard } from './pages/Dashboard';
-import { PlantSearch } from './pages/PlantSearch';
+// import { cilantroPlantData, cilantroForum } from "./AppConfig";
 
 function App() {
-  const [index, setIndex] = useState(0); // Initial index state
+  const [index, setIndex] = useState(1);
 
   const styles = {
     slideContainer: {
       height: "100vh",
-      WebkitOverflowScrolling: 'touch', // iOS momentum scrolling
-    }
+      WebkitOverflowScrolling: "touch",
+    },
   };
 
-  // Mapping of screen names to indices
   const screenIndices = {
-    'season-insights': 0,
-    'dashboard': 1,
-    'plant-profile': 2,
-    'plant-search': 3
+    "season-insights": 0,
+    dashboard: 1,
   };
 
-  // Function to set screen based on name
+  const user = {
+    name: "Alex",
+  };
+
   const setScreen = (screenName) => {
     const newIndex = screenIndices[screenName];
     if (newIndex !== undefined) {
       setIndex(newIndex);
     } else {
-      console.warn('Unknown screen name:', screenName);
+      console.warn("Unknown screen name:", screenName);
     }
   };
 
-
-  // EITHER DISPLAYS PLANT SEARCH
-
-  if (index === screenIndices["plant-search"]) {
-    return (
-      <PlantSearch setScreen={setScreen}/>
-    );
-  }
-
-  // OR ARRANGES OTHER VIEWS ON A SLIDER
-
+  const currentSeason = getCurrentSeason();
   return (
     <SwipeableViews
+      className={`bg-${currentSeason}`}
       containerStyle={styles.slideContainer}
       enableMouseEvents
-      index={index} // Control the current index
-      onChangeIndex={setIndex} // Update index state on change
+      index={index}
+      onChangeIndex={(newIndex) => {}}
     >
-      <SeasonInsights setScreen={setScreen}/>
-      <Dashboard setScreen={setScreen}/>
-      <PlantProfile setScreen={setScreen} plant={cilantroPlantData} forum={cilantroForum} />
+      <SeasonInsights setScreen={setScreen} />
+      <Dashboard setScreen={setScreen} user={user} />
     </SwipeableViews>
   );
 }

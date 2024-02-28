@@ -1,18 +1,15 @@
 // Import using relational paths
-import '../App.css';
+import "../App.css";
 
-
-function SeasonInsights({setScreen}) {
+function SeasonInsights({ setScreen }) {
   // Write in Javascript here
 
-
   return (
-    <div className="season-insights page">
-      <h1> Season Insights </h1>
-      {/* Write in XML here; use {to break out and write in JS} */}
+    <div className="page">
+      <h1 className="text-4xl font-bold mt-0 pt-10 mb-2">Seasonal insights</h1>
     </div>
   );
 }
 
-export {SeasonInsights}; 
+export { SeasonInsights };
 // Use {} notation to export more than one component;
