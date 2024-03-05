@@ -25,18 +25,3 @@ h1 {
   width: 100%;
   padding: 1em;
 }
-
-.dashboard {
-  background: #e0e1bc;
-}
-
-.plant-profile {
-  background: #b3dc4a;
-}
-
-.season-insights {
-  background: #6ac0ff;
-}
-.plant-search {
-  background: #fd5c63;
-}

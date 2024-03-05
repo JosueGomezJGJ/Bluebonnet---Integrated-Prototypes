@@ -1,18 +1,21 @@
-// Import using relational paths
 import "../App.css";
+import PlantCard from "../ui/PlantCard";
+import plantsData from "../lib/data";
 
-function Dashboard({ setScreen, user }) {
-  // Write in Javascript here
-
+function Dashboard({ user }) {
   return (
-    <div className="page">
-      <h1 className="text-4xl font-bold mt-0 pt-10 mb-2">
-        Welcome {user.name}
-      </h1>
-      {/* <button onClick={() => setScreen("plant-search")}>Add Plant</button> */}
+    <div className="page flex flex-col">
+      <h1 className="text-2xl font-semibold pl-8">My Plants</h1>
+      <div
+        className="overflow-y-auto"
+        style={{ height: "calc(100vh - 10rem)" }}
+      >
+        {plantsData.map((plant) => (
+          <PlantCard key={plant.id} plant={plant} />
+        ))}
+      </div>
     </div>
   );
 }
 
 export { Dashboard };
-// Use {} notation to export more than one component;

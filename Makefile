@@ -2,11 +2,11 @@
 ####################### Makefile Template ##############################
 ########################################################################
 # Student settings
-NAME = YOURNAME
-SID = YOURSID
-EMAIL = YOURUTAEMAIL
+NAME = 'Josue Gomez'
+SID = '1001852411'
+EMAIL = 'josue.gomez@mavs.uta.edu'
 SEMESTER = SPRING2024
-HE_PARTNERS = PERSON1_PERSON2_
+HE_PARTNERS = 'Karl Dylan Matignas Baes_Bishal Giri_Diwas Sapkota_Ismael Tovar'
  
 
 ####### DO NOT EDIT BELOW THIS LINE!!! #########
