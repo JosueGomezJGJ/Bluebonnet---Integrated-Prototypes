@@ -1,8 +1,8 @@
 import "../App.css";
 import PlantCard from "../ui/PlantCard";
-import plantsData from "../lib/data";
 
-function Dashboard({ user }) {
+function Dashboard({ plantsData }) {
+  console.log(plantsData);
   return (
     <div className="page flex flex-col">
       <h1 className="text-2xl font-semibold pl-8">My Plants</h1>

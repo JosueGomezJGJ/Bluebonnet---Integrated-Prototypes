@@ -1,13 +1,13 @@
 const searchableData = [
   {
-    id: 1,
+    id: 5,
     name: "Cilantro",
     image: "plantPhotos/cilantro.png",
     sunlight: "Partial to full sun",
     watering: "Every 2-3 days",
     temperature: "68°F - 95°F",
     about:
-      " Fragrant annual herb, grows up to 20-50 cm tall. Adds distinct flavor to culinary dishes worldwide.",
+      "Fragrant annual herb, grows up to 20-50 cm tall. Adds distinct flavor to culinary dishes worldwide.",
     comments: [
       {
         user: "Misty",
@@ -20,46 +20,44 @@ const searchableData = [
     ],
   },
   {
-    id: 2,
+    id: 6,
     name: "Citrus Tree",
     image: "plantPhotos/citrus_tree.png",
-    sunlight: "Indirect Sunlight",
-    watering: "Light Watering",
-    temperature: "65°F - 80°F",
+    sunlight: "Full sun",
+    watering: "Once a week",
+    temperature: "50°F - 100°F",
     about:
-      "Succulents are water-retaining plants adapted to arid climates or soil conditions. They store water in their leaves, stems, and roots, enabling them to survive in dry environments. They prefer indirect sunlight and require minimal watering.",
+      "Perennial fruit trees known for their fragrant flowers and juicy fruits. Requires well-drained soil and plenty of sunlight.",
     comments: [
       {
-        user: "Misty",
+        user: "Jade",
         comment:
-          "Succulents are fascinating! I have a few varieties in my apartment, and they add such a unique touch to the space.",
+          "My lemon tree has been thriving, highly recommend for a sunny spot!",
       },
       {
-        user: "Bob",
-        comment:
-          "I find succulents so low-maintenance. Perfect for someone like me who sometimes forgets to water their plants!",
+        user: "Evan",
+        comment: "Fresh limes all year round, couldn't be happier!",
       },
     ],
   },
   {
-    id: 3,
+    id: 7,
     name: "Citronella Grass",
     image: "plantPhotos/citronella_grass.png",
-    sunlight: "Partial Sunlight",
-    watering: "Heavy Watering",
-    temperature: "55°F - 90°F",
+    sunlight: "Full sun to partial shade",
+    watering: "Keep soil moist, water every 1-2 days",
+    temperature: "64°F - 85°F",
     about:
-      "Lantana is a colorful flowering plant known for its clusters of vibrant blooms. It thrives in warm climates and attracts butterflies and hummingbirds. Lantana requires regular watering, especially during hot and dry periods.",
+      "A clump-forming tropical grass, citronella is popular for its oil used in insect repellent. It enjoys warm climates and adequate moisture.",
     comments: [
       {
-        user: "Misty",
-        comment:
-          "I'm considering adding Lantana to my garden. The vibrant colors would complement my other flowers nicely.",
+        user: "Sam",
+        comment: "Effective for keeping mosquitoes away, plus it smells great!",
       },
       {
-        user: "Bob",
+        user: "Lila",
         comment:
-          "Lantana is such a hardy plant. Mine survived through a heatwave last summer without any issues!",
+          "Grows fast, needs regular trimming. Perfect for a natural bug-free zone.",
       },
     ],
   },

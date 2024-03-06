@@ -2,14 +2,16 @@ import React, { useState } from "react";
 import searchableData from "../lib/searchableData";
 import MagnifyingGlassIcon from "../ui/icons/MagnifyingGlassIcon";
 import BottomNav from "../ui/navbar";
+import { useNavigate } from "react-router-dom";
 
 function PlantSearch({ setScreen }) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Filter data based on the search term
   const filteredData = searchableData.filter((plant) =>
     plant.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  let navigate = useNavigate();
 
   return (
     <div className="page">
@@ -28,12 +30,13 @@ function PlantSearch({ setScreen }) {
         </div>
       </div>
 
-      {/* Conditionally render content */}
       {searchTerm.trim() ? (
-        // Show search results
         <div className="grid grid-cols-1 gap-4 px-6">
           {filteredData.map((plant) => (
-            <div className="bg-green rounded-xl flex items-center px-4">
+            <div
+              className="bg-green rounded-xl flex items-center px-4"
+              onClick={() => navigate(`/add-plant/${plant.id}`)}
+            >
               <div className="flex justify-center items-center w-32 my-4 bg-opacity-30 bg-light-green rounded-xl">
                 <img
                   className="w-20 h-20 object-cover"

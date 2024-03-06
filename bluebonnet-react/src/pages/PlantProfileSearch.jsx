@@ -1,43 +1,31 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import GoBackIcon from "../ui/icons/Left";
 import ThermometerIcon from "../ui/icons/Thermometer";
 import HalfWaterIcon from "../ui/icons/HalfWaterDrop";
 import SunIcon from "../ui/icons/Sun";
 import { useNavigate } from "react-router-dom";
+import BottomNav from "../ui/navbar";
+import PlantsData from "../lib/data";
 
-function PlantProfile({ plantsData, setPlantsData }) {
-  let navigate = useNavigate(); // Hook for navigation
+function PlantProfileSearch({ searchableData, setPlantsData }) {
+  let navigate = useNavigate();
   let { id } = useParams();
-  let plantIndex = plantsData.findIndex((p) => p.id === parseInt(id));
-  let plant = plantsData[plantIndex];
-
-  const [newComment, setNewComment] = useState("");
-
-  const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    if (!newComment) return;
-
-    const comment = {
-      user: "Alex",
-      comment: newComment,
-    };
-
-    const updatedPlantsData = [...plantsData];
-    updatedPlantsData[plantIndex] = {
-      ...plant,
-      comments: [...plant.comments, comment],
-    };
-
-    setPlantsData(updatedPlantsData);
-    setNewComment("");
-  };
+  const plantToAdd = searchableData.find((p) => p.id === parseInt(id));
 
   const goBack = () => {
+    navigate("/add-plant");
+  };
+
+  const handleAddPlant = () => {
+    const plantToAdd = searchableData.find((p) => p.id === parseInt(id));
+    console.log(plantToAdd);
+
+    const updatedPlantsData = [...PlantsData, plantToAdd];
+    setPlantsData(updatedPlantsData);
     navigate("/");
   };
 
-  if (!plant) {
+  if (!plantToAdd) {
     return <div className="text-center">Plant not found</div>;
   }
 
@@ -47,13 +35,13 @@ function PlantProfile({ plantsData, setPlantsData }) {
         <button className="absolute left-14" onClick={goBack}>
           <GoBackIcon color="#000" />
         </button>
-        <h1 className="text-2xl font-bold">{plant.name}</h1>
+        <h1 className="text-2xl font-bold">{plantToAdd.name}</h1>
       </div>
       <div className="bg-light-green mx-auto rounded-xl flex items-center w-80 h-52">
         <img
           className="mx-auto w-40 h-40 rounded-xl object-cover"
-          src={`/${plant.image}`}
-          alt={plant.name}
+          src={`/${plantToAdd.image}`}
+          alt={plantToAdd.name}
         />
       </div>
       {/* Plant Information Section */}
@@ -64,25 +52,31 @@ function PlantProfile({ plantsData, setPlantsData }) {
               <ThermometerIcon color="red" dimensions={"16px"} />
               <div className="text-black font-semibold">Temperature</div>
             </div>
-            <div className="text-black font-semibold">{plant.temperature}</div>
+            <div className="text-black font-semibold">
+              {plantToAdd.temperature}
+            </div>
           </div>
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <HalfWaterIcon color="#3b82f6" dimensions={"16px"} />
               <div className="text-black font-semibold">Watering</div>
             </div>
-            <div className="text-black font-semibold">{plant.watering}</div>
+            <div className="text-black font-semibold">
+              {plantToAdd.watering}
+            </div>
           </div>
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <SunIcon color="#fbbf24" dimensions={"16px"} />
               <div className="text-black font-semibold">Light</div>
             </div>
-            <div className="text-black font-semibold">{plant.sunlight}</div>
+            <div className="text-black font-semibold">
+              {plantToAdd.sunlight}
+            </div>
           </div>
           <div className="flex flex-col gap-2">
             <div className="text-black font-semibold">About the plant:</div>
-            <div className="text-black text-sm">{plant.about}</div>
+            <div className="text-black text-sm">{plantToAdd.about}</div>
           </div>
         </div>
       </div>
@@ -92,7 +86,7 @@ function PlantProfile({ plantsData, setPlantsData }) {
           What people are saying:
         </div>
 
-        {plant.comments.map((comment, index) => (
+        {plantToAdd.comments.map((comment, index) => (
           <div
             key={index}
             className="bg-green text-white rounded-xl p-2 mb-4 flex items-center gap-4"
@@ -106,25 +100,23 @@ function PlantProfile({ plantsData, setPlantsData }) {
             </div>
           </div>
         ))}
-
-        <form
-          onSubmit={handleCommentSubmit}
-          className="flex items-center gap-3"
-        >
-          <input
-            type="text"
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Add a comment..."
-            className="flex-grow p-2 rounded-md border-2 border-gray-300"
-          />
-          <button type="submit" className="bg-green text-white rounded-lg p-2">
-            Post
-          </button>
-        </form>
       </div>
+      <div className="fixed bottom-20 inset-x-0 px-4 py-8 mx-7">
+        <div className="flex justify-between items-center">
+          <button
+            onClick={handleAddPlant}
+            className="bg-green text-white py-2 px-4 rounded-lg flex-grow mr-2"
+          >
+            Add to My Plants
+          </button>
+          <span className="bg-light-green py-2 px-4 rounded-lg flex-grow ml-2">
+            x0 in Garden
+          </span>
+        </div>
+      </div>
+      <BottomNav />
     </div>
   );
 }
 
-export { PlantProfile };
+export { PlantProfileSearch };

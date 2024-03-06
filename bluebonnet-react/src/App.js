@@ -13,6 +13,8 @@ import { PlantProfile } from "./pages/PlantProfile";
 import { PlantSearch } from "./pages/PlantSearch";
 import BottomNavBar from "./ui/navbar";
 import initialPlantsData from "./lib/data";
+import { PlantProfileSearch } from "./pages/PlantProfileSearch";
+import searchableData from "./lib/searchableData";
 
 function App() {
   const navigate = useNavigate();
@@ -41,7 +43,7 @@ function App() {
         <>
           <SwipeableViews index={index} onChangeIndex={handleChangeIndex}>
             <SeasonInsights />
-            <Dashboard user={{ name: "Alex" }} />
+            <Dashboard user={{ name: "Alex" }} plantsData={plantsData} />
           </SwipeableViews>
           <BottomNavBar />
         </>
@@ -57,6 +59,15 @@ function App() {
             }
           />
           <Route path="/add-plant" element={<PlantSearch />} />
+          <Route
+            path="/add-plant/:id"
+            element={
+              <PlantProfileSearch
+                searchableData={searchableData}
+                setPlantsData={setPlantsData}
+              />
+            }
+          />
         </Routes>
       )}
     </>
