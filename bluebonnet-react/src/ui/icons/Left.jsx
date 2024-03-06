@@ -1,4 +1,4 @@
-const GoBackIcon = ({ color = "currentColor" }) => (
+const GoBackIcon = ({ color }) => (
   <svg
     width="13"
     height="22"

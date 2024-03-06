@@ -61,21 +61,21 @@ function PlantProfile({ plantsData, setPlantsData }) {
         <div className="flex flex-col gap-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <ThermometerIcon color="red" />
+              <ThermometerIcon color="red" height={"16px"} width={"16px"} />
               <div className="text-black font-semibold">Temperature</div>
             </div>
             <div className="text-black font-semibold">{plant.temperature}</div>
           </div>
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <HalfWaterIcon color="#3b82f6" />
+              <HalfWaterIcon color="#3b82f6" height={"16px"} width={"16px"} />
               <div className="text-black font-semibold">Watering</div>
             </div>
             <div className="text-black font-semibold">{plant.watering}</div>
           </div>
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
-              <SunIcon color="#fbbf24" />
+              <SunIcon color="#fbbf24" dimensions={"16px"} />
               <div className="text-black font-semibold">Light</div>
             </div>
             <div className="text-black font-semibold">{plant.sunlight}</div>

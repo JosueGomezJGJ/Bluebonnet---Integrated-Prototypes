@@ -10,6 +10,7 @@ import SwipeableViews from "react-swipeable-views";
 import { SeasonInsights } from "./pages/SeasonInsights";
 import { Dashboard } from "./pages/Dashboard";
 import { PlantProfile } from "./pages/PlantProfile";
+import { PlantSearch } from "./pages/PlantSearch";
 import BottomNavBar from "./ui/navbar";
 import initialPlantsData from "./lib/data";
 
@@ -55,6 +56,7 @@ function App() {
               />
             }
           />
+          <Route path="/add-plant" element={<PlantSearch />} />
         </Routes>
       )}
     </>
