@@ -6,7 +6,7 @@ NAME = 'Josue Gomez'
 SID = '1001852411'
 EMAIL = 'josue.gomez@mavs.uta.edu'
 SEMESTER = SPRING2024
-HE_PARTNERS = 'Karl Dylan Matignas Baes_Bishal Giri_Diwas Sapkota_Ismael Tovar'
+HE_PARTNERS = 'Karl_Dylan_Matignas_Baes Bishal_Giri Diwas_Sapkota Ismael_Tovar'
  
 
 ####### DO NOT EDIT BELOW THIS LINE!!! #########
